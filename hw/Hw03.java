@@ -34,6 +34,8 @@ public class Hw03 extends TestBase {
         WebElement doubleClick=driver.findElement(By.id("double-click"));
         actions.doubleClick(doubleClick).perform();
 
+        //Browser'ı kapatalım
+
     }
 
 

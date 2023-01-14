@@ -5,12 +5,13 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
 
 public class Hw05 extends TestBase {
     @Test
-    public void test01() {
+    public void hw05Test() {
         // sahibinden.com a gidin
         driver.get("https://sahibinden.com");
         driver.manage().deleteAllCookies();
@@ -32,11 +33,20 @@ public class Hw05 extends TestBase {
         driver.findElement(By.xpath("//*[text()='Satılık']")).click();
         driver.findElement(By.xpath("//*[text()='Daire']")).click();
 
-        WebElement element=driver.findElement(By.cssSelector("a[class='faceted-select']"));
-       Select select= new Select(element);
-       select.selectByVisibleText("Ankara");
-        waitFor(3);
+        WebElement element=driver.findElement(By.xpath("//li[@data-address='city']//a[@class='faceted-select']"));
+        element.click();
+        driver.findElement(By.xpath("//input[@class='js-address-filter' and @placeholder='İl']")).sendKeys("Ankara");
+        driver.findElement(By.xpath("//li[@data-id='6']")).click();
+        waitFor(5);
+
+       //Select select= new Select(element);
+       //select.selectByVisibleText("Ankara");
+
         // cikan sonuc sayisini veya sonuc yoksa bunu bildiren yaziyi konsolda yazdirin
+        driver.findElement(By.id("onetrust-reject-all-handler")).click();
+        WebElement aramaYap= driver.findElement(By.xpath("//button[@value='Arama Yap']"));
+        aramaYap.click();
+        System.out.print(driver.findElement(By.className("result-text-sub-group")).getText());
 
     }
 }

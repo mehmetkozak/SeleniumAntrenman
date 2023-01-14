@@ -57,10 +57,11 @@ public class Hw01 extends TestBase {
         Assert.assertTrue(sonucYazisi.contains("stroller"));
         //5-üçüncü ürüne relative locater kullanarak tıklayin
         driver.findElement(By.xpath("//img[@class='s-image' and @src='https://m.media-amazon.com/images/I/814Eys-70BL._AC_UY218_.jpg']")).click();
-        //6-title ve fiyat bilgilerini assign edelim ve ürünü sepete ekleyin
+        //6-title ve fiyat bilgilerini assign edelim
         String title2 = driver.findElement(By.id("productTitle")).getText();
         String fiyat2 = driver.findElement(By.xpath("//*[@class='a-price a-text-price a-size-medium apexPriceToPay']")).getText();
         System.out.println(title2+"//\n"+fiyat2);
+        //7-Browser'ı kapatalım
 
     }
 

@@ -41,9 +41,11 @@ public class Hw04 extends TestBase {
 
 
         //Cinsiyeti secin
-        driver.findElement(By.xpath("//input[@value='2']")).click();
+        WebElement male=driver.findElement(By.xpath("//input[@value='2']"));
+        male.click();
         waitFor(3);
         //Isaretlediginiz cinsiyetin secili, diger cinsiyet kutusunun secili olmadigini test edin.
+        Assert.assertTrue(male.isSelected());
         WebElement female=driver.findElement(By.xpath("//input[@value='1']"));
         Assert.assertFalse(female.isSelected());
     //Sayfayi kapatin

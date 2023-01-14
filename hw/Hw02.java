@@ -1,5 +1,6 @@
 package hw;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -24,6 +25,10 @@ public class Hw02 extends TestBase {
         play.click();
         waitFor(5);
         //videoyu calistirdiginizi test edin
+
+        WebElement logo=driver.findElement(By.xpath("//*[@class='ytp-youtube-button ytp-button yt-uix-sessionlink']"));
+        Assert.assertTrue(logo.isEnabled());
+        //Browser'ı kapatalım
     }
 
 }
